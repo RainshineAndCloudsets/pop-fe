@@ -18,7 +18,8 @@ import io
 import os
 import struct
 import sys
-import zlib
+from zopfli.zlib import compress
+from zlib import decompress
 
 _basic_toc = bytes([
     0x41, 0x00, 0xa0, 0x00, 0x00, 0x00, 0x00, 0x01, 0x20, 0x00,
@@ -2805,7 +2806,7 @@ class popstation(object):
                 buf = buf + bytearray(0x9300 - len(buf))
             c = buf
             if self._complevel != 0:
-                c = zlib.compress(buf, self._complevel)
+                c = compress(buf)
                 c = c[2:-4]
             idx = bytearray(32)
             struct.pack_into('<I', idx, 0, offset)
