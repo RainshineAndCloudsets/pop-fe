@@ -2806,7 +2806,7 @@ class popstation(object):
                 buf = buf + bytearray(0x9300 - len(buf))
             c = buf
             if self._complevel != 0:
-                c = compress(buf)
+                c = compress(buf, numiterations=5)
                 c = c[2:-4]
             idx = bytearray(32)
             struct.pack_into('<I', idx, 0, offset)
