@@ -61,6 +61,7 @@ jobs:
       - name: Install required Python packages
         run:   |
           pip install pillow
+          pip install zopfli
           pip install pycryptodome
           pip install PyPDF2
           pip install requests

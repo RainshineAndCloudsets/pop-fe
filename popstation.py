@@ -2662,7 +2662,7 @@ class popstation(object):
                     if not buf:
                         break
                     if len(buf) < 0x9300:
-                        buf = zlib.decompress(buf, wbits=-15)
+                        buf = decompress(buf, wbits=-15)
                     o.write(buf)
 
     def get_toc(self, img_toc, isosize):
